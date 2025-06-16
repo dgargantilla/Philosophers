@@ -6,15 +6,15 @@
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 10:23:29 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/06 17:09:04 by dgargant         ###   ########.fr       */
+/*   Updated: 2025/06/13 12:26:18 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_error()
+void	print_error(char *error)
 {
-	printf("Error\n");
+	printf("%s\n", error);
 	exit(1);
 }
 
@@ -39,7 +39,21 @@ int	check_letrs(char *str)
 	return (0);
 }
 
-void	parsing_init(t_tables *table, char **args)
+void	take_nums(t_table *table, char *arg, int i)
+{
+	if (i == 1)
+		table->n_philos = ft_atoi(arg);
+	if (i == 2)
+		table->time_to_die = ft_atoi(arg);
+	if (i == 3)
+		table->time_to_eat = ft_atoi(arg);
+	if (i == 4)
+		table->time_to_sleep = ft_atoi(arg);
+	if (arg && i == 5)
+		table->nt_must_to_eat = ft_atoi(arg);
+}
+
+void	parsing_init(t_table *table, char **args)
 {
 	int	i;
 
@@ -47,12 +61,13 @@ void	parsing_init(t_tables *table, char **args)
 	(void)table;
 	while (args[i])
 	{
-		if (ft_atoi(args[i]) == 0)
-			print_error();
+		if (i == 1 && ft_atoi(args[i]) == 0)
+			print_error("Se necesita al menos un philo");
 		if (check_letrs(args[i]))
-			print_error();
+			print_error("Argumento no valido");
 		else if (check_overflow(args[i]))
-			print_error();
+			print_error("Numero incorrecto");
+		take_nums(table, args[i], i);
 		i++;
 	}
 }

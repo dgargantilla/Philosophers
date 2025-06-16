@@ -6,7 +6,7 @@
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:53:05 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/06 16:54:58 by dgargant         ###   ########.fr       */
+/*   Updated: 2025/06/11 09:38:37 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 			return (nb * neg);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 long long	ft_atoll(const char *str)
 {
@@ -64,7 +64,7 @@ long long	ft_atoll(const char *str)
 			return (nb * neg);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	check_len(char *nums)

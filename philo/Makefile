@@ -6,7 +6,7 @@
 #    By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/04 12:51:09 by dgargant          #+#    #+#              #
-#    Updated: 2025/06/06 16:57:36 by dgargant         ###   ########.fr        #
+#    Updated: 2025/06/16 09:48:09 by dgargant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS_DIR    = src/
 SRCS_FILES := \
 	philo.c\
 	$(addprefix Parsing/, parsing_init.c	parsing_overflow.c) \
+	$(addprefix Utils/, ft_calloc.c) \
 
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
