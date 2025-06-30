@@ -6,7 +6,7 @@
 #    By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/04 12:51:09 by dgargant          #+#    #+#              #
-#    Updated: 2025/06/16 09:48:09 by dgargant         ###   ########.fr        #
+#    Updated: 2025/06/30 12:46:04 by dgargant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ SRCS_DIR    = src/
 SRCS_FILES := \
 	philo.c\
 	$(addprefix Parsing/, parsing_init.c	parsing_overflow.c) \
-	$(addprefix Utils/, ft_calloc.c) \
+	$(addprefix Utils/, ft_calloc.c	time_manager.c) \
+	$(addprefix Lifestyle/, death_parade.c	philo_life.c) \
+	$(addprefix Actions/, forks.c	printer.c) \
 
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 

@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:25:15 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/19 17:06:59 by dgargant         ###   ########.fr       */
+/*   Created: 2025/06/27 12:40:05 by dgargant          #+#    #+#             */
+/*   Updated: 2025/06/30 12:43:12 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include	"philo.h"
 
-void	ft_bzero(void *s, size_t n)
+void	printer(t_table *table, char *action, int id)
 {
-	ft_memset(s, 0, n);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (ptr != NULL)
-		ft_bzero(ptr, count * size);
-	return (ptr);
+	pthread_mutex_lock(&table->print_mutex);
+	printf("%ld %d %s", (get_time() - table->actual_time),
+			 id, action);
+	pthread_mutex_unlock(&table->print_mutex);
 }

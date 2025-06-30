@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   time_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:25:15 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/19 17:06:59 by dgargant         ###   ########.fr       */
+/*   Created: 2025/06/30 10:16:18 by dgargant          #+#    #+#             */
+/*   Updated: 2025/06/30 12:41:45 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_bzero(void *s, size_t n)
+long	get_time()
 {
-	ft_memset(s, 0, n);
+	struct timeval	actual_time;
+	long			time;
+
+	time = ((gettimeofday(actual_time.tv_sec, NULL) * 1000) +
+			(gettimeofday(actual_time.tv_usec, NULL) / 1000));
+	return (time);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_usleep(size_t time)
 {
-	void	*ptr;
+	size_t	start;
 
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (ptr != NULL)
-		ft_bzero(ptr, count * size);
-	return (ptr);
+	while ((get_time() - start) < time)
+		usleep(200);
+	return (0);
 }

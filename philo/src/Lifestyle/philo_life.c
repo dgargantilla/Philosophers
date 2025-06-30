@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   philo_life.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:25:15 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/19 17:06:59 by dgargant         ###   ########.fr       */
+/*   Created: 2025/06/19 12:15:26 by dgargant          #+#    #+#             */
+/*   Updated: 2025/06/25 12:35:31 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*philo_life(void *arg)
 {
-	ft_memset(s, 0, n);
-}
+	t_philo	*philo;
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (ptr != NULL)
-		ft_bzero(ptr, count * size);
-	return (ptr);
+	philo = (t_philo *)arg;
+	while (1)
+	{
+		
+	}
 }

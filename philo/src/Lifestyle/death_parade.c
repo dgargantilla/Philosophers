@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   death_parade.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:25:15 by dgargant          #+#    #+#             */
-/*   Updated: 2025/06/19 17:06:59 by dgargant         ###   ########.fr       */
+/*   Created: 2025/06/19 16:22:34 by dgargant          #+#    #+#             */
+/*   Updated: 2025/06/26 12:36:28 by dgargant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*death_parade(void *arg)
 {
-	ft_memset(s, 0, n);
-}
+	/* esta funcion/proceso va a revisar si alguien muere
+	 o si ha de terminarse el programa y hacer que todos
+	 los philos paren su ejecuccion*/ 
+	t_table	*reaper;
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (ptr != NULL)
-		ft_bzero(ptr, count * size);
-	return (ptr);
+	reaper = (t_table *)arg;
+	while (1)
+	{
+		
+	}
 }
