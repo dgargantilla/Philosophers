@@ -6,7 +6,7 @@
 #    By: dgargant <dgargant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/04 12:51:09 by dgargant          #+#    #+#              #
-#    Updated: 2025/06/30 12:46:04 by dgargant         ###   ########.fr        #
+#    Updated: 2025/07/03 11:33:05 by dgargant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	   = philo
 
 CC          = cc
 
-CFLAGS      = -Wall -Wextra -Werror -I$(INC)
+CFLAGS      = -Wall -Wextra -Werror -I$(INC) -fsanitize=address 
 
 INC         = includes/
 
@@ -35,9 +35,9 @@ SRCS_DIR    = src/
 SRCS_FILES := \
 	philo.c\
 	$(addprefix Parsing/, parsing_init.c	parsing_overflow.c) \
-	$(addprefix Utils/, ft_calloc.c	time_manager.c) \
+	$(addprefix Utils/, ft_calloc.c	time_manager.c	ft_memset.c) \
 	$(addprefix Lifestyle/, death_parade.c	philo_life.c) \
-	$(addprefix Actions/, forks.c	printer.c) \
+	$(addprefix Actions/, forks.c	printer.c	eat.c	sleep.c	think.c) \
 
 OBJS_FILES  = $(SRCS_FILES:.c=.o)
 
